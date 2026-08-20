@@ -1,0 +1,11 @@
+services:
+  web:
+    image: node:alpine
+    container_name: node_mounted_server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server.js:/app/server.js
+    working_dir: /app
+    command: npx nodemon --legacy-watch server.js
+    restart: always
